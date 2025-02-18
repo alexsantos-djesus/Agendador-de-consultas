@@ -12,13 +12,13 @@ function sendEmail($to, $subject, $message) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'aleoficialccr@gmail.com';
-        $mail->Password = 'zyja taoo hkqc emkf';
+        $mail->Username = 'seuemail@gmail.com';
+        $mail->Password = 'sua senha';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         // Remetente e destinatário
-        $mail->setFrom('aleoficialccr@gmail.com', 'Agendador de Consultas');
+        $mail->setFrom('seuemail@gmail.com', 'Agendador de Consultas');
         $mail->addAddress($to);
 
         // Conteúdo do e-mail
