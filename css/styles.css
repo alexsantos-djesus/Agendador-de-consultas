@@ -1,0 +1,155 @@
+/* Fundo geral */
+body {
+    background-color: #f8f9fa;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+/* Containers principais */
+.container,
+.dashboard-container,
+.login-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h1,
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Tabelas */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+/* Sem dados */
+.no-data {
+    text-align: center;
+    color: #6c757d;
+}
+
+/* Ações em tabelas */
+.btn-actions {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+/* Botão voltar */
+.btn-voltar {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Erros de formulário */
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Rótulos dos inputs */
+.form-group label,
+.form-label {
+    font-weight: 500;
+}
+
+/* Botão roxo para login */
+.btn-login {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #5a31a5;
+    border-color: #5a31a5;
+}
+
+/* Botão sucesso genérico */
+.btn-success {
+    transition: background-color 0.3s ease;
+}
+
+/* Ícones dentro dos botões */
+.btn i {
+    margin-right: 4px;
+}
+
+/* Responsividade geral */
+@media (max-width: 768px) {
+
+    .container,
+    .dashboard-container,
+    .login-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .btn-actions {
+        flex-direction: column;
+    }
+}
+
+/* Cartões */
+.card {
+    border-radius: 1rem;
+}
+
+/* Toasts personalizados */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1055;
+    min-width: 320px;
+}
+
+.toast-base {
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.toast-success {
+    background-color: #198754;
+}
+
+.toast-error {
+    background-color: #dc3545;
+}
+
+.toast-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.toast-info {
+    background-color: #0dcaf0;
+}
+
+.toast-base .close-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.25rem;
+}

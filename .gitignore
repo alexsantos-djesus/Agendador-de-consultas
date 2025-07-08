@@ -1,0 +1,25 @@
+# Ignorar configurações do ambiente
+.env
+.env.*
+
+# Ignorar dependências
+/vendor/
+
+# Ignorar logs e temporários
+*.log
+logs/
+*.tmp
+*.cache
+
+# Ignorar arquivos de IDE/editor
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.idea/
+
+# Ignorar backups
+*.bak
+*.old
+
+# Ignorar sistema do Mac
+.DS_Store
