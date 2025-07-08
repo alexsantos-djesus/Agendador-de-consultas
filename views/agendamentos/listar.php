@@ -29,7 +29,12 @@ require_once __DIR__ . '/../../includes/functions.php';
                 <button class="btn btn-success" id="btnNovoAgendamento" data-bs-toggle="modal" data-bs-target="#modalNovo">
                     <i class="bi bi-plus-circle"></i> Novo Agendamento
                 </button>
+                <button class="btn btn-outline-primary" id="btnAbrirCalendario" data-bs-toggle="modal" data-bs-target="#modalCalendario">
+                    <i class="bi bi-calendar-event"></i> Ver Calendário
+                </button>
             </div>
+
+
 
             <?php if (empty($agendamentos)) : ?>
                 <div class="alert alert-info text-center">Nenhum agendamento encontrado.</div>
@@ -143,6 +148,18 @@ require_once __DIR__ . '/../../includes/functions.php';
         </div>
     </div>
 
+    <!-- Modal do Calendário -->
+    <div class="modal fade" id="modalCalendario" tabindex="-1" aria-labelledby="modalCalendarioLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" id="conteudoModalCalendario">
+                <div class="modal-body text-center p-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-3">Carregando calendário...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         const showToast = (msg) => {
@@ -237,7 +254,7 @@ require_once __DIR__ . '/../../includes/functions.php';
                     const modal = bootstrap.Modal.getInstance(document.getElementById('modalConfirmarExclusao'));
                     modal.hide();
                     if (data.success) {
-                        showToast("Agendamento excluído com sucesso!",);
+                        showToast("Agendamento excluído com sucesso!", );
                         setTimeout(() => location.reload(), 1500);
                     } else {
                         showToast(data.mensagem || 'Erro ao excluir agendamento.');
@@ -245,6 +262,20 @@ require_once __DIR__ . '/../../includes/functions.php';
                 })
                 .catch(() => {
                     showToast('Erro ao processar requisição.');
+                });
+        });
+
+        document.getElementById("btnAbrirCalendario").addEventListener("click", () => {
+            const url = `${window.location.origin}/Agendador-de-consultas/controllers/AgendamentoController.php?acao=calendario`;
+            const conteudo = document.getElementById("conteudoModalCalendario");
+
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    conteudo.innerHTML = html;
+                })
+                .catch(() => {
+                    conteudo.innerHTML = '<div class="p-4 text-danger">Erro ao carregar calendário.</div>';
                 });
         });
     </script>

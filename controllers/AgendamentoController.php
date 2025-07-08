@@ -37,6 +37,11 @@ switch ($acao) {
         }
         break;
 
+    case 'calendario':
+        include __DIR__ . '/../views/agendamentos/calendario.php';
+        break;
+
+
     case 'listar':
     default:
         $agendamentos = $agendamento->listarTodos();
